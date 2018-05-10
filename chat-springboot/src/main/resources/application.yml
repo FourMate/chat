@@ -1,0 +1,50 @@
+server:
+  port: 8081
+#  context-path: /springboot
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.75.57.210:3306/chat
+#    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: root
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+debug: true
+logging:
+  level:
+    org.hibernate: DEBUG
+
+mybatis:
+  config-locations: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+#  type-aliases-package: com.brokepal.model
+
+
+#mail配置
+mail:
+  host: smtp.163.com
+  protocal: smtp
+  port: 25
+  mailAddress: nightynight_cc@@163.com
+  password: 123456qaz
